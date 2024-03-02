@@ -23,7 +23,7 @@ export class LoginComponent {
   async login(email: string, password: string) {
     const url = 'http://localhost:3000/users';
     try {
-      const data = await this.http.get(url).toPromise();
+      const data = await lastValueFrom(this.http.get(url));
       const users = data as UserGetResponse[];
       const foundUser = users.find(user => user.user_email === email && user.user_pass === password);
 
@@ -32,8 +32,8 @@ export class LoginComponent {
        
       }
     }
-  }
   
+  }
 }
 
 
