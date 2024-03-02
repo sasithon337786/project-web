@@ -22,7 +22,7 @@ import { UserService } from '../services/api/user.service';
 export class LoginComponent {
   constructor(
     private http: HttpClient,
-    private router: Router,
+    private rout: Router,
     private userService: UserService
   ) {}
 
@@ -54,6 +54,6 @@ export class LoginComponent {
     }
   }
   navigateTomain() {
-    this.router.navigate(['/main']);
+    this.rout.navigate(['/main']);
   }
 }
