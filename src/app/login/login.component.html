@@ -6,8 +6,8 @@
         Cat breed vote</h1>
 
         <mat-form-field class="inp" appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput #name />
+            <mat-label>Email</mat-label>
+            <input matInput #user_email />
         </mat-form-field>
         
         <mat-form-field class="inp" appearance="outline">
@@ -15,7 +15,7 @@
             <input matInput #user_pass/>
         </mat-form-field>
 
-        <button (click)="login(name.value,user_pass.value)">Login</button>
+        <button (click)="login(user_email.value,user_pass.value)">Login</button>
 
         <a  onclick=" routerLink" href="/sigup">Dont have a account? Sign up</a>
     </div>
