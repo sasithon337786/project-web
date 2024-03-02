@@ -15,30 +15,36 @@ import { UserService } from '../services/api/user.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private http: HttpClient,private route: Router , protected shareData : UserService,private yourService: UserService) {
-  }
-  
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
-  
   async login(email: string, password: string) {
+    const url = 'http://localhost:3000/users';
     try {
-      const url = 'http://localhost:3000/users';
-      const data = await lastValueFrom(
-        this.http.get(url));
-        const users = data as UserGetResponse[];
-        const foundUser = users.find(user => user.user_email === email && user.user_pass === password);
+      const data = await this.http.get(url).toPromise();
+      const users = data as UserGetResponse[];
+      const foundUser = users.find(user => user.user_email === email && user.user_pass === password);
 
-        if (foundUser) {
-          console.log(foundUser);
+      if (foundUser) {
+        console.log("User found:", foundUser);
+        if (password === foundUser.user_pass) {
+          localStorage.setItem("userID", JSON.stringify(foundUser.user_id));
+          console.log("Session ID : " + foundUser.user_id + " is set on LocalStorage");
+          this.navigateTomain(); // Navigate to 'main' route
         } else {
+          alert("รหัสผ่านไม่ถูกต้อง");
         }
+      } else {
+        alert("ไม่มีผู้ใช้นี้อยู่ในระบบ โปรดสมัครสมาชิก");
+      }
     } catch (error) {
-        console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error);
     }
+  }
+  navigateTomain() {
+    this.router.navigate(['/main']);
+  }
 }
-}
-
-
-
-  
-
