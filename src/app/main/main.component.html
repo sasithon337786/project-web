@@ -1,13 +1,18 @@
-<app-nav></app-nav>
+<ng-template #guestToolbar>
+  <app-nav></app-nav>
+</ng-template>
+<div *ngIf="shared.userData !== undefined; else guestToolbar">
+  <app-navtop10></app-navtop10>
+</div>
+
 <body>
   <div class="h1">
     <p>Click on the image to vote!!</p>
   </div>
-  <button (click)="getPicture()">test</button>
+
   <div class="container">
     <div class="div">
       <div class="logo">
-      
         <img
           src="https://i.pinimg.com/564x/c2/36/74/c236747cd41f8a2605f8d6bfededb9ff.jpg"
         />
@@ -16,10 +21,8 @@
         <p>sasithon</p>
       </div>
     </div>
-    <div class="picvote1">
-      <img
-        src="https://i.pinimg.com/564x/b4/9e/b7/b49eb71e6983ecee173beb8f65581a5e.jpg"
-      />
+    <div class="picvote1" *ngIf="lastRandomData1">
+      <img [src]="lastRandomData1.pictrue_url" />
     </div>
   </div>
   <div class="OR">
@@ -36,10 +39,8 @@
         <p>Beemmmy_beem</p>
       </div>
     </div>
-    <div class="picvote2">
-      <img
-        src="https://i.pinimg.com/564x/aa/e3/95/aae3953a647f4b26502bd76fcf7dd7ca.jpg"
-      />
-    </div>
+  </div>
+  <div class="picvote2" *ngIf="lastRandomData2">
+    <img [src]="lastRandomData2.pictrue_url" />
   </div>
 </body>
