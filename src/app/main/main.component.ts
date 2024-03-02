@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { UserService } from '../services/api/user.service';
+import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PictureGetResponse } from '../model/picture_get';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { Navtop10Component } from "../nav/navtop10/navtop10.component";
 @Component({
-  selector: 'app-main',
-  standalone: true,
-  imports: [NavComponent],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+    selector: 'app-main',
+    standalone: true,
+    templateUrl: './main.component.html',
+    styleUrl: './main.component.scss',
+    imports: [NavComponent, Navtop10Component,CommonModule,MatToolbarModule]
 })
 export class MainComponent {
 Picture: PictureGetResponse[] | undefined;

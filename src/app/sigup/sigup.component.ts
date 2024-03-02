@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sigup',
   standalone: true,
@@ -30,7 +31,7 @@ export class SigupComponent {
     { value: 2, name: 'Male' }
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private rout: Router) {}
  
 addNew() {
     const body = {
@@ -48,6 +49,10 @@ addNew() {
     this.http.post(url, body).subscribe((response) => {
       console.log(response);
     });
+    this.navigateTologin(); 
+  }
+  navigateTologin() {
+    this.rout.navigate(['/login']);
   }
 }
 

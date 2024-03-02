@@ -1,4 +1,11 @@
-<app-nav></app-nav>
+<ng-template #guestToolbar>
+  <app-nav></app-nav>
+</ng-template>
+<div *ngIf="shared.userData !== undefined; else guestToolbar">
+  <app-navtop10></app-navtop10>
+</div>
+
+
 <body>
   <div class="h1">
     <p>Click on the image to vote!!</p>
@@ -9,8 +16,7 @@
       <div class="logo">
       
         <img
-          src="https://i.pinimg.com/564x/c2/36/74/c236747cd41f8a2605f8d6bfededb9ff.jpg"
-        />
+        src="{{getPicture()}}"        />
       </div>
       <div class="pro">
         <p>sasithon</p>
