@@ -1,0 +1,51 @@
+body {
+    background-image: url("https://i.pinimg.com/564x/1d/2a/b9/1d2ab9368334c350d841e10b81c588fd.jpg");
+    display: flex;
+    flex-wrap: wrap;
+    background-position: center;
+    justify-content: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวนอน */
+}
+.pro{
+    font-weight: bold; 
+    font-size: 15px;
+    color: rgb(49, 44, 47);
+    font-family: "DM Serif Display", serif;
+}
+.container {
+
+    display: flex;
+    flex-direction: column; /* จัดเรียงเนื้อหาเป็นแนวตั้ง */
+    justify-content: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวตั้ง */
+    width: 30%;
+    height: 70%;
+    overflow: hidden;
+    background-size: contain; /* เปลี่ยนจาก cover เป็น contain */
+    background-position: center;
+    // margin-right: 30px;
+    margin-top: 55px;
+    gap: 15px;
+    cursor: pointer;
+
+}
+.picvote1 {
+    display: flex; /* เพิ่ม display: flex; */
+    justify-content: center; /* เพิ่ม justify-content: center; */
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background-size: contain; /* เปลี่ยนจาก cover เป็น contain */
+    background-position: center;
+}
+
+.logo img {
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 50px;
+    margin-right: 10px; 
+  }
+  .div {
+    display: flex;
+    align-items: center; /* จัดให้องค์ประกอบอยู่กึ่งกลางตามแนวดิ่ง */
+    gap: 5px; /* กำหนดระยะห่างระหว่างองค์ประกอบภายใน .div1 */
+}

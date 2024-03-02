@@ -1,0 +1,47 @@
+<body>
+    <div class="pic">
+    </div> 
+    <div class="container">
+        <div class="pic2"></div>
+        <h1>sig up to<br>
+        Cat breed vote</h1>
+
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name" />
+        </mat-form-field>
+
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" />
+        </mat-form-field>
+        
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="password" />
+        </mat-form-field>
+
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select [(ngModel)]="gender">
+              @for (gender of genders; track gender)
+              { 
+              <mat-option [value]="gender.value">{{
+                gender.name
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="inp" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput [(ngModel)]="age" />
+          </mat-form-field>
+
+        <button   (click)="addNew()">Sigup</button>
+        
+        <a  onclick=" routerLink" href="/login">You have a account? Log in</a>
+    </div>
+
+   
+</body>

@@ -1,0 +1,105 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    // padding: 50px;
+    background-image: url("https://i.pinimg.com/736x/fd/dd/26/fddd265fb3e8e9588132a49d7b94ecf5.jpg");
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    ;
+}
+
+.container {
+    width: 40%;
+    height: 90%;
+    background-image: url("https://i.pinimg.com/564x/62/7d/d0/627dd023d16d72275a233331df637312.jpg");
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.pic {
+    width: 40%;
+    height: 90%;
+    overflow: hidden;
+    background-image: url("https://i.pinimg.com/736x/58/db/90/58db90d7785aa3721e8bf3bff0e2bbfd.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-left: 50px;
+}
+
+
+
+.inp {
+    margin: 1%;
+    width: 350px;
+    height: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+* {
+    --mdc-outlined-text-field-outline-color:#ef81b4 !important;
+    --mdc-outlined-text-field-hover-outline-color:#ef81b4!important;
+    --mdc-outlined-text-field-focus-outline-color:#ef81b4 !important;
+    font-family: "DM Serif Display", serif;
+  }
+
+
+button {
+    margin: 3%;
+    width: 350px;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    background-color: #ef81b4;
+    border: 2px solid #ef81b4;
+    border-radius: 50px;
+    outline: none;
+    transition: .4s;
+    color:  #575355;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: "DM Serif Display", serif;
+}
+
+
+
+h1 {
+    font-family: "DM Serif Display", serif;
+   
+    color: #575355;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #575355;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "DM Serif Display", serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 100px;
+    border-radius: 10px;
+
+}
+

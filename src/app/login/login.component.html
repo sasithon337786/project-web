@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <div class="pic2"></div>
+        <img src="https://i.pinimg.com/564x/3b/a2/19/3ba219234701f77018dc283f48d1759f.jpg">
+        <h1>Welcome to<br>
+        Cat breed vote</h1>
+
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput #name />
+        </mat-form-field>
+        
+        <mat-form-field class="inp" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput #user_pass/>
+        </mat-form-field>
+
+        <button (click)="login(name.value,user_pass.value)">Login</button>
+
+        <a  onclick=" routerLink" href="/sigup">Dont have a account? Sign up</a>
+    </div>
+
+    <div class="pic">
+    </div> 
+</body>
