@@ -21,11 +21,8 @@ export class LoginComponent {
     private userService: UserService
   ) {}
 
-<<<<<<< HEAD
   
   
-=======
->>>>>>> 352680c59ee123da1c094b5d4a4749af0350091d
   async login(email: string, password: string) {
     const url = 'http://localhost:3000/users';
     try {
@@ -50,14 +47,8 @@ export class LoginComponent {
     }
   }
   navigateTomain() {
-<<<<<<< HEAD
-    this.route.navigate(['/main']);
+    this.router.navigate(['/main']);
   }
 }
   
 
-=======
-    this.router.navigate(['/main']);
-  }
-}
->>>>>>> 352680c59ee123da1c094b5d4a4749af0350091d
