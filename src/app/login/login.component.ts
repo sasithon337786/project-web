@@ -20,6 +20,7 @@ export class LoginComponent {
   
 
   
+  
   async login(email: string, password: string) {
     const url = 'http://localhost:3000/users';
     try {
@@ -29,14 +30,23 @@ export class LoginComponent {
 
       if (foundUser) {
         console.log("User found:", foundUser);
-       
+        if (password === foundUser.user_pass) {
+          localStorage.setItem("userID", JSON.stringify(foundUser.user_id));
+          console.log("Session ID : " + foundUser.user_id + " is set on LocalStorage");
+          this.navigateTomain(); // Navigate to 'main' route
+        } else {
+          alert("รหัสผ่านไม่ถูกต้อง");
+        }
+      } else {
+        alert("ไม่มีผู้ใช้นี้อยู่ในระบบ โปรดสมัครสมาชิก");
       }
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   }
-  
+  navigateTomain() {
+    this.route.navigate(['/main']);
+  }
 }
-
-
-
   
 
