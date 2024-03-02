@@ -15,8 +15,7 @@ import { UserService } from '../services/api/user.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private http: HttpClient,private route: Router , protected shareData : UserService,private yourService: UserService) {
-  }
+  constructor(private http: HttpClient,private route: Router , protected shareData : UserService,private yourService: UserService) {}
   
 
   
@@ -29,9 +28,9 @@ export class LoginComponent {
 
       if (foundUser) {
         console.log("User found:", foundUser);
-       
+        
       }
-    }
+    }catch{}
   
   }
 }
