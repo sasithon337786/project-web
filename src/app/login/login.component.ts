@@ -15,15 +15,28 @@ import { UserService } from '../services/api/user.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private http: HttpClient,private route: Router , protected shareData : UserService) {}
-  user: UserGetResponse[] = [];
+  constructor(private http: HttpClient,private route: Router , protected shareData : UserService,private yourService: UserService) {}
   
+  async login(email: string, password: string) {
+    try {
+        console.log(this.yourService.getName,"test1");
+        const data = this.yourService.getName() as unknown ;
+        console.log(data);
+        const users = data as UserGetResponse[];
+      
+        const foundUser = users.find(user => user.user_email === email && user.user_pass === password);
 
-  login(name : string , password : string){
-    
-  }
-  
-
-  
-
+        if (foundUser) {
+           console.log(foundUser);
+        } else {
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
+}
+
+
+
+  
+
