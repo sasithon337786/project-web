@@ -9,6 +9,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class UserService {
 
+
   user : UserGetResponse[] = [];
   constructor(private constants : Constants, private http: HttpClient ,) {
     this.getName();
