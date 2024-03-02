@@ -15,12 +15,17 @@ import { UserService } from '../services/api/user.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private http: HttpClient,private route: Router , protected shareData : UserService,private yourService: UserService) {
-  }
-  
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
+<<<<<<< HEAD
   
   
+=======
+>>>>>>> 352680c59ee123da1c094b5d4a4749af0350091d
   async login(email: string, password: string) {
     const url = 'http://localhost:3000/users';
     try {
@@ -45,8 +50,14 @@ export class LoginComponent {
     }
   }
   navigateTomain() {
+<<<<<<< HEAD
     this.route.navigate(['/main']);
   }
 }
   
 
+=======
+    this.router.navigate(['/main']);
+  }
+}
+>>>>>>> 352680c59ee123da1c094b5d4a4749af0350091d
