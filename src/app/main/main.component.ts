@@ -19,6 +19,7 @@ export class MainComponent {
   Picture: PictureGetResponse[] | undefined;
   lastRandomData1: any;
   lastRandomData2: any;
+  
   constructor(protected shared: UserService, private http: HttpClient) {}
   ngOnInit(): void {
     this.getPicture();
