@@ -12,6 +12,7 @@ export class UserService {
 
  public user : UserGetResponse[] = [];
  public userData: UserGetResponse | undefined;
+ 
   constructor(private constants : Constants, private http: HttpClient ) {
     this.getName();
   }
@@ -22,8 +23,8 @@ export class UserService {
       this.http.get(url));
     this.user = data as UserGetResponse[];
     console.log(this.user);
+    console.log(this.userData)
   }
-
 
 
 
