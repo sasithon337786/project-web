@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="picvote1" *ngIf="Picture && Picture.length > 0">
-      <img [src]="Picture[0]?.pictrue_url" alt="รูปภาพ" (click)="check(Picture[0].pictrue_id)" />
+      <img [src]="Picture[0].pictrue_url" alt="รูปภาพ" (click)="check(Picture[0].pictrue_id)" />
     </div>
   </div>
   
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="picvote2" *ngIf="Picture && Picture.length > 1">
-      <img [src]="Picture[1]?.pictrue_url" alt="รูปภาพ" (click)="check(Picture[1].pictrue_id)" />
+      <img [src]="Picture[1].pictrue_url" alt="รูปภาพ" (click)="check(Picture[1].pictrue_id)" />
     </div>
   </div>
   
