@@ -30,7 +30,7 @@ export class LoginComponent {
             console.log("User found:", foundUser);
             localStorage.setItem('currentUser', JSON.stringify(foundUser));
         } else {
-            console.log("User not found or incorrect credentials.");
+             alert("User not found or incorrect credentials.");
         }
     } catch (error) {
         console.error("Error occurred:", error);
