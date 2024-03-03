@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
+import { UserService } from '../services/api/user.service';
 import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,8 +8,6 @@ import { PictureGetResponse } from '../model/picture_get';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Navtop10Component } from '../nav/navtop10/navtop10.component';
 import { UserGetResponse } from '../model/user_get';
-import { UserService } from '../services/api/user.service';
-
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -20,13 +19,10 @@ export class MainComponent {
   Picture: PictureGetResponse[] | undefined;
   lastRandomData1: any;
   lastRandomData2: any;
-  userData: UserGetResponse | undefined;
-  
-  constructor(private userService: UserService, private http: HttpClient) {}
+  constructor(protected shared: UserService, private http: HttpClient) {}
   ngOnInit(): void {
     this.getPicture();
     console.log('Init State');
-    this.userData = this.userService.getUserData();
   }
 
   async getPicture() {

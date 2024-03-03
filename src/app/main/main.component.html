@@ -1,12 +1,11 @@
-<div *ngIf="userData; then navContent else navtop10Content"></div>
 
-<ng-template #navContent>
+ <div *ngIf="shared.userData !== undefined; else guestToolbar">
+  <app-navtop10></app-navtop10>
+</div> 
+<ng-template #guestToolbar>
   <app-nav></app-nav>
 </ng-template>
 
-<ng-template #navtop10Content>
-  <app-navtop10></app-navtop10>
-</ng-template>
 <body>
   <div class="h1">
     <p>Click on the image to vote!!</p>
