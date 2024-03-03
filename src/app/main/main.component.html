@@ -1,9 +1,17 @@
 <ng-template #guestToolbar>
   <app-nav></app-nav>
 </ng-template>
-<div *ngIf="shared.userData !== undefined; else guestToolbar">
+
+
+<!-- <div *ngIf="shared.userData !== undefined; else guestToolbar">
   <app-navtop10></app-navtop10>
-</div>
+</div> -->
+
+  <div *ngFor="let picture of Picture">
+    <img [src]="picture.pictrue_url" alt="รูปภาพ" (click)="check(picture.pictrue_id)" >
+  </div>
+
+
 
 <body>
   <div class="h1">
@@ -22,7 +30,7 @@
       </div>
     </div>
     <div class="picvote1" *ngIf="lastRandomData1">
-      <img [src]="lastRandomData1" />
+      <img src="{{ this.Picture }}" />
     </div>
   </div>
   <div class="OR">

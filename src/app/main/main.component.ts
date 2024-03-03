@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { PictureGetResponse } from '../model/picture_get';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Navtop10Component } from '../nav/navtop10/navtop10.component';
+import { UserGetResponse } from '../model/user_get';
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -35,43 +36,69 @@ export class MainComponent {
     const data = await lastValueFrom(this.http.get(url));
     this.Picture = data as PictureGetResponse[];
     console.log(this.Picture);
-    const currentTime = new Date().getTime();
+  }
+  check(p_id: number) {
+    if (this.Picture !== undefined) {
+      const currentTime: Date = new Date();
+      const voteTimestamp: string = currentTime
+        .toISOString()
+        .slice(0, 19)
+        .replace('T', ' ');
+      const currentUser = JSON.parse(
+        localStorage.getItem('currentUser') || '{}'
+      ) as UserGetResponse;
+      if (currentUser === null) {
+        const machineIdString = window.navigator.userAgent;
+        const machineIdNumber = parseInt(machineIdString, 10);
+        const currentUserDefault: UserGetResponse = {
+          user_id: machineIdNumber,
+          name: function (name: any): unknown {
+            throw new Error('Function not implemented.');
+          },
+          user_email: '',
+          user_pass: '',
+          user_type: 0,
+          user_pictrue: '',
+          user_name: '',
+          user_age: null,
+          user_gender: null,
+          user_preference: null,
+        };
 
-    if (!lastRandomTime || currentTime - lastRandomTime >= 10000) {
-      let randomIndex1 = Math.floor(Math.random() * this.Picture.length);
-      let randomIndex2 = Math.floor(Math.random() * this.Picture.length);
-
-      while (randomIndex2 === randomIndex1) {
-        randomIndex2 = Math.floor(Math.random() * this.Picture.length);
+        localStorage.setItem('currentUser', JSON.stringify(currentUserDefault));
       }
+      if (p_id === this.Picture[0].pictrue_id) {
+        const body = {
+          vote_timestamp: voteTimestamp,
+          vote_point1: this.Picture[0].pictrue_p,
+          vote_point2: this.Picture[1].pictrue_p,
+          pt_id1: this.Picture[0].pictrue_id,
+          pt_id2: this.Picture[1].pictrue_id,
+          u_id: currentUser.user_id,
+        };
+        const url = 'http://localhost:3000/vote/vote';
+        this.http.post(url, body).subscribe((response) => {
+          console.log(response);
+        });
+        console.log('1');
+        this.getPicture();
+      } else {
+        const body = {
+          vote_timestamp: voteTimestamp,
+          vote_point1: this.Picture[1].pictrue_p,
+          vote_point2: this.Picture[0].pictrue_p,
+          pt_id1: this.Picture[1].pictrue_id,
+          pt_id2: this.Picture[0].pictrue_id,
+          u_id: currentUser.user_id,
+        };
+        const url = 'http://localhost:3000/vote/vote';
+        this.http.post(url, body).subscribe((response) => {
+          console.log(response);
+        });
 
-      lastRandomIndex1 = randomIndex1;
-      lastRandomIndex2 = randomIndex2;
-      lastRandomData1 = this.Picture[randomIndex1];
-      lastRandomData2 = this.Picture[randomIndex2];
-      lastRandomTime = currentTime;
-
-      console.log(lastRandomIndex1, lastRandomIndex2);
-      console.log(lastRandomData1, lastRandomData2);
-    } else {
-      let randomIndex1 = Math.floor(Math.random() * this.Picture.length);
-      let randomIndex2 = Math.floor(Math.random() * this.Picture.length);
-
-      while (
-        randomIndex1 === lastRandomIndex1 ||
-        randomIndex2 === lastRandomIndex2 ||
-        randomIndex2 === randomIndex1
-      ) {
-        randomIndex2 = Math.floor(Math.random() * this.Picture.length);
+        console.log('2');
+        this.getPicture();
       }
-
-      lastRandomIndex1 = randomIndex1;
-      lastRandomIndex2 = randomIndex2;
-      lastRandomData1 = this.Picture[randomIndex1].pictrue_url;
-      lastRandomData2 = this.Picture[randomIndex2].pictrue_url;
-
-      console.log(lastRandomIndex1, lastRandomIndex2);
-      console.log(lastRandomData1, lastRandomData2);
     }
   }
 }
