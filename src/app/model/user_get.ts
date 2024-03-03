@@ -1,5 +1,5 @@
 export interface UserGetResponse {
-  
+    name(name: any): unknown;
     user_id:         number;
     user_email:      string;
     user_pass:       string;
