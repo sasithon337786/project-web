@@ -38,6 +38,7 @@ export class MainComponent {
     this.Picture = data as PictureGetResponse[];
     console.log(this.Picture);
   }
+
   check(p_id: number) {
     if (this.Picture !== undefined) {
       const currentTime: Date = new Date();
@@ -96,7 +97,6 @@ export class MainComponent {
         this.http.post(url, body).subscribe((response) => {
           console.log(response);
         });
-
         console.log('2');
         this.getPicture();
       }
